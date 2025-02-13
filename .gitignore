@@ -1,0 +1,6 @@
+venv/
+scraped_items/
+logs/
+data/
+.env
+__pycache__

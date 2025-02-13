@@ -1,0 +1,35 @@
+{
+    "start_urls": [
+      "https://www.bbc.com/"
+    ],
+    "selectors": {
+      "title": {
+        "xpath" : "//h2[@data-testid='card-headline']/text()",
+        "operations": [
+          {
+            "name": "strip"
+          }
+        ]
+      },
+      "content":{
+        "xpath": "//p[@data-testid='card-description']/text()",
+        "operations":[
+          {
+            "name": "strip"
+          }
+        ]
+      },
+      "url": {
+        "xpath": "//a[@data-testid='internal-link']/@href",
+        "operations": [
+          {
+            "name": "join_url",
+            "additional_info": {
+              "base_url": "https://www.bbc.com/"
+            }
+          }
+        ]
+      }
+    }
+  }
+  
