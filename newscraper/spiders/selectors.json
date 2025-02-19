@@ -1,35 +1,60 @@
 {
-    "start_urls": [
-      "https://www.bbc.com/"
-    ],
-    "selectors": {
-      "title": {
-        "xpath" : "//h2[@data-testid='card-headline']/text()",
-        "operations": [
-          {
-            "name": "strip"
+  "bbc_spider": {
+    "title": {
+      "xpath": "//h2[@data-testid='card-headline']/text()",
+      "operations": [
+        {
+          "name": "strip"
+        }
+      ]
+    },
+    "content": {
+      "xpath": "//p[@data-testid='card-description']/text()",
+      "operations": [
+        {
+          "name": "strip"
+        }
+      ]
+    },
+    "url": {
+      "xpath": "//a[@data-testid='internal-link']/@href",
+      "operations": [
+        {
+          "name": "join_url",
+          "additional_info": {
+            "base_url": "https://www.bbc.com/"
           }
-        ]
-      },
-      "content":{
-        "xpath": "//p[@data-testid='card-description']/text()",
-        "operations":[
-          {
-            "name": "strip"
+        }
+      ]
+    }
+  },
+  "other_spider": {
+    "title": {
+      "xpath": "//h1[@class='headline']/text()",
+      "operations": [
+        {
+          "name": "strip"
+        }
+      ]
+    },
+    "content": {
+      "xpath": "//div[@class='article-body']/p/text()",
+      "operations": [
+        {
+          "name": "strip"
+        }
+      ]
+    },
+    "url": {
+      "xpath": "//a[@class='article-link']/@href",
+      "operations": [
+        {
+          "name": "join_url",
+          "additional_info": {
+            "base_url": "https://www.otherwebsite.com/"
           }
-        ]
-      },
-      "url": {
-        "xpath": "//a[@data-testid='internal-link']/@href",
-        "operations": [
-          {
-            "name": "join_url",
-            "additional_info": {
-              "base_url": "https://www.bbc.com/"
-            }
-          }
-        ]
-      }
+        }
+      ]
     }
   }
-  
+}
